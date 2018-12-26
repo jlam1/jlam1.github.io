@@ -786,13 +786,21 @@ td.gutter {
 /* CUSTOM CSS */
 
 /* Portfolio */
-.project .tags {
-  list-style: none;
+.project .title, .project .title a {
+  color: #404040;
 }
 
-.project .tags ul > li {
-  display: inline;
-  border: 1px solid gray;
-  background-color: gray;
+.project .tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project .tags li {
+  display: inline-block;
+  background-color: rgba(175,34,34,.8);
   color: white;
+  padding: 1px 5px;
+  margin: 0 0 3px 0;
+  font-size: 0.75em;
 }
