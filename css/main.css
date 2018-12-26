@@ -786,16 +786,19 @@ td.gutter {
 /* CUSTOM CSS */
 
 /* Portfolio */
+.project {
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 20px 10px;
+  box-shadow: 2px 2px 5px grey;
+}
 .project .title, .project .title a {
   color: #404040;
 }
-
 .project .tags {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
 .project .tags li {
   display: inline-block;
   background-color: rgba(175,34,34,.8);
@@ -804,7 +807,6 @@ td.gutter {
   margin: 0 0 3px 0;
   font-size: 0.75em;
 }
-
 .project .extra-comments {
   font-size: 0.65em;
   margin: 5px auto;
