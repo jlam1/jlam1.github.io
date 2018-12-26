@@ -804,3 +804,8 @@ td.gutter {
   margin: 0 0 3px 0;
   font-size: 0.75em;
 }
+
+.project .extra-comments {
+  font-size: 0.65em;
+  margin: 5px auto;
+}
