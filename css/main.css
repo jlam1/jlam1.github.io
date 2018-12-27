@@ -812,3 +812,10 @@ td.gutter {
   font-size: 0.65em;
   margin: 5px auto;
 }
+
+/* POSTS */
+.post img {
+  margin: 30px auto;
+  text-align: center;
+  display: block;
+}
