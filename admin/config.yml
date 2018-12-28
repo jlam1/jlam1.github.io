@@ -2,7 +2,7 @@ backend:
   name: github
   repo: jlam1/jlam1.github.io
   branch: master
-  site_domain: https://compassionate-keller-0064db.netlify.com/
+  site_domain: https://johnjlam.com
 
 media_folder: "images/uploads"
 
