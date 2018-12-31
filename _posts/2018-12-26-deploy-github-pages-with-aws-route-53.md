@@ -37,7 +37,7 @@ You will need to have registered for both [GitHub](https://github.com/) and [AWS
 6. Validation method should be `DNS validation` to make validation of your certification request much quicker (this is not the case if the domain was registered elsewhere)
 ![ACM-4](https://johnjlam.com/img/posts/2018-12-26/acm-4.PNG)
 7. Click the arrow down for more options then click the option to `Create a record in Route 53`
-8. Official documentation can be found here [https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html)
+8. Official documentation can be found here [acm documentation](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html)
 
 ## Creating the repo for github page
 Either create an empty respository in the format of username.github.io or fork over a jekyll theme which I opt for.
