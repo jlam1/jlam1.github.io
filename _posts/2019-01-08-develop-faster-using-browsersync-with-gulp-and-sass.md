@@ -14,11 +14,16 @@ In a nutshell, [BrowserSync](https://www.browsersync.io/) is an opensource autom
 * Installation of Nodejs
 
 ## Setup
-Before starting a new project I usually set my folder structure before installing the packages.
+Before we start initialize the project by running
+{: .box-note}
+npm init
+
+This is my usual setup for folder structure.
 ![folderstructure](https://johnjlam.com/img/posts/2019-01-08/folderstructure.PNG)
 
 And in my index file this is what I usually start with.
-~~~
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,10 +54,16 @@ And in my index file this is what I usually start with.
 	<script src="js/main.js"></script>
 </body>
 </html>
-~~~
+```
 
-Install gulp using this command
-`npm install --save gulp`
+## Installing Packages
+Install browser-sync with this command
+{: .box-note}
+npm install --save -g browser-sync
+
+Install gulp using this command 
+{: .box-note}
+npm install --save -g gulp
 
 
 
