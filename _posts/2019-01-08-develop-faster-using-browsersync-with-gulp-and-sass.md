@@ -15,6 +15,7 @@ In a nutshell, [BrowserSync](https://www.browsersync.io/) is an opensource autom
 
 ## Setup
 Before we start initialize the project by running
+
 {: .box-note}
 npm init
 
@@ -58,10 +59,12 @@ And in my index file this is what I usually start with.
 
 ## Installing Packages
 Install browser-sync with this command
+
 {: .box-note}
 npm install --save -g browser-sync
 
 Install gulp using this command 
+
 {: .box-note}
 npm install --save -g gulp
 
