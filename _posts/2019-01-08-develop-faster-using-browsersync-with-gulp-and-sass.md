@@ -19,6 +19,9 @@ Before we start initialize the project by running
 {: .box-note}
 npm init
 
+This will prompt you questions about the project's name, version, etc. Press Enter for default values.
+This will create a `package.json` file in the root. This is where you can see all dependencies installed and change their versions for whatever reasons.
+
 This is my usual setup for folder structure.
 ![folderstructure](https://johnjlam.com/img/posts/2019-01-08/folderstructure.PNG)
 
@@ -44,7 +47,7 @@ And in my index file this is what I usually start with.
 
 <body>
 	<main>
-		
+		<h1>HELLO WORLD!</h1>
 	</main>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -57,18 +60,83 @@ And in my index file this is what I usually start with.
 </html>
 ```
 
-## Installing Packages
-Install browser-sync with this command
+## Installing Packages and Gulp Tasks
+Input these commands into the terminal/command line
 
 {: .box-note}
 npm install --save -g browser-sync
 
-Install gulp using this command 
-
 {: .box-note}
 npm install --save -g gulp
 
+{: .box-note}
+npm install --save -g gulp-sass
 
+In the root of your project create an empty javascript file name `gulpfile.js` with these lines
+
+```javascript
+var gulp = require('gulp');  
+var sass = require('gulp-sass');  
+var browserSync = require('browser-sync');
+
+gulp.task('sass', function () {  
+    gulp.src('scss/styles.scss')
+        .pipe(sass({includePaths: ['scss']}))
+        .pipe(gulp.dest('css'));
+});
+
+gulp.task('browser-sync', function() {  
+    browserSync.init(["css/*.css", "js/*.js"], {
+        server: {
+            baseDir: "./"
+        }
+    });
+});
+
+gulp.task('watch', ['sass', 'browser-sync'], function () {  
+    gulp.watch("scss/*.scss", ['sass']);
+    gulp.watch("*.html").on('change', browserSync.reload);
+});
+```
+
+## Test
+Create an empty scss file inside the scss directory.
+Run the command in the terminal
+
+{: .box-note}
+gulp watch
+
+This should start on your localhost:3000.
+
+Input a valid scss into the file and save. This will compile the scss file into the css directory into valid css syntax.
+
+Example:
+![folderstructure](https://johnjlam.com/img/posts/2019-01-08/taskrunner.PNG)
+
+## Issues
+There is an issue (as of this post's date), when running the command `gulp watch`, it will mention that the `Task function must be specified`.
+
+You can resolve this by going in `package.json` and change the gulp's version to 3.9.1. Afterwards run `npm install`.
+
+```json
+{
+  "name": "frontend_template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+```
 
 ## Sources
 * [BrowserSync](https://www.browsersync.io/)
