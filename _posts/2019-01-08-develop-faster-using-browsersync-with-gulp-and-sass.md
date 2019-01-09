@@ -1,20 +1,16 @@
 ---
 layout: post
 title: Develop faster using browsersync with gulp and sass
-tags: [browsersync, gulp, sass, css, html, bootstrap, node, frontend, development, tutorial, vscode]
+tags: [browsersync, gulp, sass, css, html, bootstrap, node, frontend, tutorial, development]
 ---
 
 ## Overview
 This is a small guide for developing on the frontend more quickly using an automation tool call browsersync.
-I will go over how I personally build websites from a design to static page using html and sass.
+I will go over how I personally build websites from a design to static page.
 In a nutshell, [BrowserSync](https://www.browsersync.io/) is an opensource automation tool built with Nodejs that has features such as file syncs and network throttling for testing and many more.
 
-## Before you start
-* Text Editor Tool (using Visual Studio Code)
-* Installation of Nodejs
-
 ## Setup
-Before we start initialize the project by running
+Before we start install nodejs then initialize the project by running
 
 {: .box-note}
 npm init
