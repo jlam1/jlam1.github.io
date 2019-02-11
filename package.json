@@ -1,0 +1,24 @@
+{
+  "name": "nhfs",
+  "version": "1.0.0",
+  "description": "NHFS frontend",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlam1/nhfs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlam1/nhfs/issues"
+  },
+  "homepage": "https://github.com/jlam1/nhfs#readme"
+}

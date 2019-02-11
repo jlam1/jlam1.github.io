@@ -1,9 +1,24 @@
-# project
-_site
-.sass-cache
-.vagrant
-
-# general
 .DS_Store
-Thumbs.db
-ehthumbs.db
+node_modules
+.vscode
+dist
+
+designs
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*

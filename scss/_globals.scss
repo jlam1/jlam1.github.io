@@ -1,0 +1,100 @@
+$color-primary: #f29200;
+$color-secondary: #00457c;
+$color-muted: #f4f5f6;
+
+$break-xxs: 320px;
+$break-xs: 576px;
+$break-sm: 768px;
+$break-md: 992px;
+$break-lg: 1200px;
+
+body {
+	font-family: 'Raleway', sans-serif;
+	overflow-x: hidden;
+}
+.bg-primary {
+	background-color: $color-primary!important;
+}
+.bg-secondary {
+	background-color: $color-secondary!important;
+}
+.bg-muted {
+	background-color: $color-muted!important;
+}
+.bg-transparent {
+	background-color: transparent!important;
+}
+.color-primary {
+	color: $color-primary;
+}
+.color-secondary {
+	color: $color-secondary;
+}
+.color-white {
+	color: #fff;
+}
+/* Underlining (for headers and subheaders) */
+.underline-custom:after {
+	content: '';
+	margin-top: 8px;
+	height: 1px;
+	background-color: #fff;
+    display: block;
+}
+.underline-custom.underline-xs:after {
+	width: 1em;
+}
+.underline-custom.underline-sm:after {
+	width: 1.5em;
+}
+.underline-custom.underline-md:after {
+	width: 3em;
+}
+.underline-custom.underline-lg:after {
+	width: 4em;
+}
+.underline-custom.underline-default:after {
+	background-color: #fff;
+}
+.underline-custom.underline-primary:after {
+	background-color: $color-primary;
+}
+.underline-custom.underline-secondary:after {
+	background-color: $color-secondary;
+}
+.underline-custom.underline-center:after {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* BUTTONS */
+.custom-btn {
+	display: inline-block;
+	color: #fff;
+	border: 0;
+	transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+	background-size: 200% 100%;
+	background-position: 100%;
+	font-weight: 400;
+	padding: 15px 10px;
+	font-size: 1.1em;
+	margin-top: 10px;
+	background-image: linear-gradient(to right, $color-primary 50%, $color-secondary 50%);
+}
+.custom-btn:hover {
+	text-decoration: none;
+	transition: all 0.3s cubic-bezier(0, 0, 0, 1);
+	background-position: 0%;
+	color: #fff;
+}
+
+@media screen and (max-width: $break-md) {
+	// main {
+	// 	margin-top: 90px;
+	// }
+}
+@media screen and (max-width: $break-xs) {
+	// main {
+	// 	margin-top: 60px;
+	// }
+}

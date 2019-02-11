@@ -1,0 +1,60 @@
+.introduction {
+	position: relative;
+	background-color: #232323;
+	.wrapper {
+		text-align: center;
+		h2 {
+			position: relative;
+			color: #fff;
+			z-index: 999;
+			font-size: 2.5em;
+			line-height: 36pt;
+			margin-bottom: 15px;
+		}
+		.custom-btn {
+			position: relative;
+			display: inline-block;
+			padding: 15px 25px;
+			text-align: center;
+			z-index: 999;
+			color: #fff;
+		}
+	}
+}
+#canvas {
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	min-width: 2000px;
+	height: 100%;
+	background: #232323;
+}
+
+section.portfolio {
+	ul.filtering {
+		li {
+			transition: opacity 0.3s ease-in-out;
+		}
+		li:hover {
+			cursor: pointer;
+			opacity: 0.8;
+		}
+	}
+	.uk-subnav-pill > .uk-active > a {
+		background-color: $color-secondary;
+	}
+}
+
+@media screen and (max-width: $break-md) {
+	#canvas {
+		display: none;
+	}
+}
+@media screen and (max-width: $break-xs) {
+	// main {
+	// 	margin-top: 60px;
+	// }
+}

@@ -1,1 +1,103 @@
-var main={bigImgEl:null,numImgs:null,init:function(){$(window).scroll(function(){$(".navbar").offset().top>50?($(".navbar").addClass("top-nav-short"),$(".navbar-custom .avatar-container").fadeOut(500)):($(".navbar").removeClass("top-nav-short"),$(".navbar-custom .avatar-container").fadeIn(500))}),$("#main-navbar").on("show.bs.collapse",function(){$(".navbar").addClass("top-nav-expanded")}),$("#main-navbar").on("hidden.bs.collapse",function(){$(".navbar").removeClass("top-nav-expanded")}),$("#main-navbar").on("click",".navlinks-parent",function(n){var a=n.target;$.each($(".navlinks-parent"),function(n,i){i==a?$(i).parent().toggleClass("show-children"):$(i).parent().removeClass("show-children")})});var n=$(".navlinks-container");if(n.length>0){$("#main-navbar ul").append("<li class='fake-menu' style='display:none;'><a></a></li>");var a=$(".fake-menu");$.each(n,function(i){$(n[i]).find(".navlinks-parent");var t=$(n[i]).find(".navlinks-children a"),e=[];$.each(t,function(n,a){e=e.concat($(a).text().trim().split(/\s+/))});var s=0;$.each(e,function(n,i){a.html("<a>"+i+"</a>");var t=a.width();t>s&&(s=t)}),$(n[i]).css("min-width",s+"px")}),a.remove()}main.initImgs()},initImgs:function(){if($("#header-big-imgs").length>0){main.bigImgEl=$("#header-big-imgs"),main.numImgs=main.bigImgEl.attr("data-num-img");var n=main.getImgInfo(),a=n.src,i=n.desc;main.setImg(a,i);var t=function(){var n=main.getImgInfo(),a=n.src,i=n.desc;(new Image).src=a,setTimeout(function(){var n=$("<div></div>").addClass("big-img-transition").css("background-image","url("+a+")");$(".intro-header.big-img").prepend(n),setTimeout(function(){n.css("opacity","1")},50),setTimeout(function(){main.setImg(a,i),n.remove(),t()},1e3)},6e3)};main.numImgs>1&&t()}},getImgInfo:function(){var n=Math.floor(Math.random()*main.numImgs+1);return{src:main.bigImgEl.attr("data-img-src-"+n),desc:main.bigImgEl.attr("data-img-desc-"+n)}},setImg:function(n,a){$(".intro-header.big-img").css("background-image","url("+n+")"),void 0!==a&&!1!==a?$(".img-desc").text(a).show():$(".img-desc").hide()}};document.addEventListener("DOMContentLoaded",main.init);
+var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+var stars = [], // Array that contains the stars
+    FPS = 60, // Frames per second
+    x = 100, // Number of stars
+    mouse = {
+      x: 0,
+      y: 0
+    };  // mouse location
+
+// Push stars to array
+
+for (var i = 0; i < x; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 1 + 1,
+    vx: Math.floor(Math.random() * 50) - 25,
+    vy: Math.floor(Math.random() * 50) - 25
+  });
+}
+
+// Draw the scene
+
+function draw() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  
+  ctx.globalCompositeOperation = "lighter";
+  
+  for (var i = 0, x = stars.length; i < x; i++) {
+    var s = stars[i];
+  
+    ctx.fillStyle = "#fff";
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.fillStyle = 'black';
+    ctx.stroke();
+  }
+  
+  ctx.beginPath();
+  for (var i = 0, x = stars.length; i < x; i++) {
+    var starI = stars[i];
+    ctx.moveTo(starI.x,starI.y); 
+    if(distance(mouse, starI) < 150) ctx.lineTo(mouse.x, mouse.y);
+    for (var j = 0, x = stars.length; j < x; j++) {
+      var starII = stars[j];
+      if(distance(starI, starII) < 150) {
+        //ctx.globalAlpha = (1 / 150 * distance(starI, starII).toFixed(1));
+        ctx.lineTo(starII.x,starII.y); 
+      }
+    }
+  }
+  ctx.lineWidth = 0.05;
+  ctx.strokeStyle = 'white';
+  ctx.stroke();
+}
+
+function distance( point1, point2 ){
+  var xs = 0;
+  var ys = 0;
+ 
+  xs = point2.x - point1.x;
+  xs = xs * xs;
+ 
+  ys = point2.y - point1.y;
+  ys = ys * ys;
+ 
+  return Math.sqrt( xs + ys );
+}
+
+// Update star locations
+
+function update() {
+  for (var i = 0, x = stars.length; i < x; i++) {
+    var s = stars[i];
+  
+    s.x += s.vx / FPS;
+    s.y += s.vy / FPS;
+    
+    if (s.x < 0 || s.x > canvas.width) s.vx = -s.vx;
+    if (s.y < 0 || s.y > canvas.height) s.vy = -s.vy;
+  }
+}
+
+canvas.addEventListener('mousemove', function(e){
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+// Update and draw
+
+function tick() {
+  draw();
+  update();
+  requestAnimationFrame(tick);
+}
+
+tick();
